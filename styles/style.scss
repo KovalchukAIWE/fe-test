@@ -259,6 +259,10 @@
       color: #000;
       transition: 0.3s;
     }
+    @media (max-width: 576px) {
+      width: 330px;
+      font-size: 16px;
+    }
   }
 }
 

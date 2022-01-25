@@ -51,7 +51,7 @@ const checkInputs = () => {
 		setSuccessFor(secondName);
 	};
 
-	if (passwordValue === '') {
+	if (passwordValue !== isPassword) {
 		setErrorFor(password, 'Password must have 1 letter, 1 number and one symbol');
 		setTimeout(function() {
 			document.getElementById('passwordId').style.display = 'none'
@@ -78,7 +78,7 @@ const checkInputs = () => {
 		setSuccessFor(confirmPassword);
 	};
 
-	if(emailValue === '') {
+	if(emailValue !== isEmail) {
 		setErrorFor(email, 'Email is not correct');
 		setTimeout(function() {
 			document.getElementById('emailId').style.display = 'none'
@@ -124,12 +124,10 @@ const setErrorFor = (input, message) => {
 }
 	
 const isEmail = (email) => {
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 }
 
-const isPassword = (password) => {
-	return /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{3,10}$/.test(password)
-}
+const isPassword = password => /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{4,9}$/;
 
 
 document.getElementById("registration").addEventListener("click", function(){
